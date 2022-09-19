@@ -7,7 +7,13 @@ local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloo
 getgenv().autofill = false
 getgenv().autoclean = false
 local plr = game.Players.LocalPlayer
-local plot = plr.Plot.Value
+local plot = nil
+wait(1)
+
+local plotname = plr.Plot.Value.Name
+local plot = workspace.PLOTS[plotname]
+print(plot)
+
 
 local w = library:CreateWindow("My prison") -- Creates the window
 
@@ -23,18 +29,16 @@ function autoFillFunc()
         if autofill == true then
             while autofill do
                 wait(1)
-                for i, v in pairs(workspace.PLOTS.Plot2.Tunnels:GetChildren()) do
+                local human = plr.Character:FindFirstChild("HumanoidRootPart")
+                for i, v in pairs(plot.Tunnels:GetChildren()) do
                     wait(1)
                     if autofill == false then break end
                     if  v.Name == "Tunnel1" or v.Name == "Tunnel2" or v.Name == "Tunnel3" then
-                        wait(1)
-                        local human = plr.Character:FindFirstChild("HumanoidRootPart")
                         if human then
                             human.CFrame = v.DustPart.CFrame
-                            wait(1)
+                            wait(0.1)
                             fireproximityprompt(v.ProximityPrompt)
                             print("Proximity fired")
-                            wait(1)
                         end
                     end
                 end
@@ -48,17 +52,15 @@ end
 function autoTrashCleanFunc()
     spawn(function()
         if autoclean then
-            for i, v in pairs(workspace.PLOTS.Plot2.Garbage:GetChildren()) do
+            local human = plr.Character:FindFirstChild("HumanoidRootPart")
+            for i, v in pairs(plot.Garbage:GetChildren()) do
                 wait(1)
-                local human = plr.Character:FindFirstChild("HumanoidRootPart")
                 if human then
                     if autoclean == false then break end
                     if v.Name == "PlateTrash" or "SodaTrash" then
-                        wait(1)
                         human.CFrame = v.Part.CFrame
                         wait(0.1)
                         fireproximityprompt(v.ProximityPrompt)
-                        wait(1)
                     end
                 end
             end
@@ -116,5 +118,5 @@ end)
 --setclipboard()
 
 d:Button("copy discord",function()
-    setclipboard("https://discord.gg/ZgZvPdjFHF")
+    setclipboard(gg/ZgZvPdjFHF)
 end)
