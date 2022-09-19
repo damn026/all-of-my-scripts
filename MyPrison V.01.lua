@@ -115,6 +115,6 @@ end)
 
 --setclipboard()
 
-c:Button("copy discored",function()
+d:Button("copy discored",function()
     setclipboard("https://discord.gg/ZgZvPdjFHF")
 end)
