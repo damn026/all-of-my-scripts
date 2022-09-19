@@ -118,5 +118,5 @@ end)
 --setclipboard()
 
 d:Button("copy discord",function()
-    setclipboard(gg/ZgZvPdjFHF)
+    --setclipboard(gg/ZgZvPdjFHF)
 end)
